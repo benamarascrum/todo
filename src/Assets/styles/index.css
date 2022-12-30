@@ -1,0 +1,10 @@
+/*Library*/
+
+/*Global*/
+@import "./app.css";
+
+/*Pages*/
+@import "./pages/home.css";
+
+/*Component*/
+@import"./components/navbar.css";
