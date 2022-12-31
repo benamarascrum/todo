@@ -36,6 +36,16 @@ export default function Todo() {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <div>
+          {!getterTasks.length
+            ? "0"
+            : getterTasks.length === 1
+            ? "1"
+            : getterTasks.length > 1
+            ? `${getterTasks.length}`
+            : null}
+        </div>
+
         <input
           type="text"
           placeholder="Add a task..."
@@ -45,6 +55,14 @@ export default function Todo() {
         />
         <button onClick={handleAdd}> + </button>
       </form>
+
+      {getterTasks.map(function (getTask) {
+        return (
+          <ul key={getTask.id}>
+            <li>{getTask.task}</li>
+          </ul>
+        );
+      })}
     </>
   );
 }
