@@ -25,6 +25,18 @@ export default function Todo() {
     );
   };
 
+  const handleDelete = (e) => {
+    // creer une copie de la data
+    const copyTasks = [...getterTasks];
+
+    //manipuler la copie state
+    const updateTasks = copyTasks.filter((item) => item.id !== e);
+
+    //modifier le state avec le setter
+    setterTasks(updateTasks);
+    localStorage.setItem("LOCAL_KEY_TASKS", JSON.stringify(updateTasks));
+  };
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -56,10 +68,13 @@ export default function Todo() {
         <button onClick={handleAdd}> + </button>
       </form>
 
-      {getterTasks.map(function (getTask) {
+      {getterTasks.map(function (item) {
         return (
-          <ul key={getTask.id}>
-            <li>{getTask.task}</li>
+          <ul key={item.id}>
+            <li>
+              {item.task}
+              <button onClick={() => handleDelete(item.id)}> x </button>
+            </li>
           </ul>
         );
       })}
