@@ -44,6 +44,11 @@ export default function Todo() {
     setTask({ ...getTask, [name]: value, id: id });
   };
 
+  const handleClear = () => {
+    setterTasks([]);
+    localStorage.removeItem("LOCAL_KEY_TASKS");
+  };
+
   //Affichage
   return (
     <>
@@ -78,6 +83,10 @@ export default function Todo() {
           </ul>
         );
       })}
+
+      {!getterTasks.length ? null : (
+        <button onClick={() => handleClear()}>clear</button>
+      )}
     </>
   );
 }
