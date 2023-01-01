@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Todo() {
   //State (Data)
@@ -9,6 +9,13 @@ export default function Todo() {
   });
 
   //Comportement
+  useEffect(() => {
+    if (localStorage.getItem("LOCAL_KEY_TASKS")) {
+      const storedList = JSON.parse(localStorage.getItem("LOCAL_KEY_TASKS"));
+      setterTasks(storedList);
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setTask({
