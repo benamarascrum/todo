@@ -18,6 +18,9 @@ export default function NavBar() {
       <NavLink to={"/"} style={navbarStyle}>
         Accueil
       </NavLink>
+      <NavLink to={"/todo"} style={navbarStyle}>
+        To do
+      </NavLink>
     </>
   );
 }

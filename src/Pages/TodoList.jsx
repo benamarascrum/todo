@@ -2,16 +2,16 @@ import React from "react";
 import Todo from "../Components/list/Todo";
 import NavBar from "../Components/menu/NavBar";
 
-export default function Home() {
+export default function TodoList() {
   //State (Data)
 
   //Comportement
 
   //Affichage
   return (
-    <div>
+    <>
       <NavBar />
-      <h1>Home Page</h1>
-    </div>
+      <Todo />
+    </>
   );
 }
