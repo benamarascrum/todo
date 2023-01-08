@@ -18,6 +18,9 @@ export default function NavBar() {
       <NavLink to={"/"} style={navbarStyle}>
         Accueil
       </NavLink>
+      <NavLink to={"/connexion"} style={navbarStyle}>
+        Connexion
+      </NavLink>
     </>
   );
 }
